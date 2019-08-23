@@ -42,24 +42,24 @@ public class TestPaymentController {
 		this.mock = MockMvcBuilders.standaloneSetup(controller).build();
 	}
 	
-//	@Test
-//	public void testGetAll() throws Exception {
-//		this.mock.perform(get("/payment/get").contentType(MediaType.APPLICATION_JSON))
-//        .andExpect(status().isOk())
-//				.andDo(print())
-//				.andExpect(jsonPath("$.*", Matchers.hasSize(2) ));
-//	}
-//	
-//	@Test
-//	public void testGetById() throws Exception {
-//		this.mock.perform(get("/payment/get/{id}", 101)
-//				.contentType(MediaType.APPLICATION_JSON))
-//        		.andExpect(status().isOk())
-//				.andDo(print())
-//				.andExpect(jsonPath("$.paymentId", Matchers.is(101) ))
-//				.andExpect(jsonPath("$.description", Matchers.is("current bill payment")))
-//				.andExpect(jsonPath("$.amount", Matchers.is(8200.0) ));
-//	}
+	@Test
+	public void testGetAll() throws Exception {
+		this.mock.perform(get("/payment/get").contentType(MediaType.APPLICATION_JSON))
+        .andExpect(status().isOk())
+				.andDo(print())
+				.andExpect(jsonPath("$.*", Matchers.hasSize(2) ));
+	}
+	
+	@Test
+	public void testGetById() throws Exception {
+		this.mock.perform(get("/payment/get/{id}", 101)
+				.contentType(MediaType.APPLICATION_JSON))
+        		.andExpect(status().isOk())
+				.andDo(print())
+				.andExpect(jsonPath("$.paymentId", Matchers.is(101) ))
+				.andExpect(jsonPath("$.description", Matchers.is("current bill payment")))
+				.andExpect(jsonPath("$.amount", Matchers.is(8200.0) ));
+	}
 	
 	private static String asJsonString(final Object obj) {
 		try {
